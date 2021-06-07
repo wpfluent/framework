@@ -192,7 +192,7 @@ class Route
 
             if (in_array($param, $params)) {
                 throw new InvalidArgumentException(
-                    "Duplicate parameter name \"{$param}\" found in {$uri}."
+                    "Duplicate parameter name '{$param}' found in {$uri}.", 500
                 );
             }
             

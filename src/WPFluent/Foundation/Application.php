@@ -141,7 +141,9 @@ class Application extends Container
                 require_once $this->basePath . 'app/Http/Routes/api.php';
                 $router->registerRoutes();
             } catch (InvalidArgumentException $e) {
-                $app->doCustomAction('handle_exception', $e);
+                return $app->response->json([
+                    'message' => $e->getMessage()
+                ], $e->getCode() ?: 500);
             }
         });
     }

@@ -2,8 +2,6 @@
 
 namespace WPFluent\Foundation;
 
-use WPFluent\Foundation\ForbiddenException;
-
 trait FoundationTrait
 {
     public function env()
