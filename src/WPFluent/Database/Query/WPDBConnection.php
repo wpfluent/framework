@@ -391,7 +391,7 @@ class WPDBConnection implements ConnectionInterface
 
     public function getQueryGrammar()
     {
-        $grammar = new Grammar;
+        $grammar = new MySqlGrammar;
 
         $grammar->setTablePrefix($this->wpdb->prefix);
 
