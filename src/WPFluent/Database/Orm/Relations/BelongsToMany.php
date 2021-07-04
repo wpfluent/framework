@@ -7,10 +7,13 @@ use WPFluent\Support\Str;
 use WPFluent\Database\Orm\Model;
 use WPFluent\Database\Orm\Builder;
 use WPFluent\Database\Orm\Collection;
+use WPFluent\Database\Orm\ModelHelperTrait;
 use WPFluent\Database\Orm\ModelNotFoundException;
 
 class BelongsToMany extends Relation
 {
+    use ModelHelperTrait;
+
     /**
      * The intermediate table for the relation.
      *
@@ -1142,7 +1145,11 @@ class BelongsToMany extends Relation
      */
     protected function guessInverseRelation()
     {
-        return Str::camel(Str::plural(class_basename($this->getParent())));
+        return Str::camel(
+            Str::plural(
+                static::classBasename($this->getParent())
+            )
+        );
     }
 
     /**
